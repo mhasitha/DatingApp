@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import{FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, ModalModule } from 'ngx-bootstrap';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FileUploadModule } from 'ng2-file-upload';
 import{NgxGalleryModule} from 'ngx-gallery';
@@ -31,6 +31,10 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { QuestionListComponent } from './question/question-list/question-list.component';
+import { PostQuestionComponent } from './question/post-question/post-question.component';
+import { QuestionService } from './_services/question.service';
+import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -49,7 +53,10 @@ export function tokenGetter(){
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      QuestionListComponent,
+      PostQuestionComponent,
+      QuestionDetailComponent
    ],
    imports: [
       BrowserModule,
@@ -58,6 +65,8 @@ export function tokenGetter(){
       FormsModule,
       ReactiveFormsModule,
       BsDropdownModule.forRoot(),
+      ModalModule.forRoot(),
+   //  NgMultiSelectDropDownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
          config:{
@@ -80,7 +89,8 @@ export function tokenGetter(){
       MemberDetailResolver,
       MemberListResolver,
       MemberEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      QuestionService
    ],
    bootstrap: [
       AppComponent

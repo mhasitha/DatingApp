@@ -1,22 +1,48 @@
 <nav class=" navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container nav-container">
-      <a class="navbar-brand" [routerLink]="['/']">Dating App</a>
+      <a class="navbar-brand" [routerLink]="['/']">Gaming-Friends</a>
+
+
       <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button> -->
-      <ul class="navbar-nav mr-auto" *ngIf="loggedIn()">
+
+
+      
+      <ul class="navbar-nav mr-auto" *ngIf="loggedIn()" >
+      
+  
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/Store']">Store</a>
+          <a class="nav-link" [routerLink]="['/question']">Question</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/Games']" >Games</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/Software']">Software</a>
-        </li>
+
+
+        <div class="Games">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Games
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">PC Games</a></li>
+                <li><a href="#">XBOX Games</a></li>
+                <li><a href="#">PS Games</a></li>
+            </ul>
+          </div>
+
+          
+          <div class="Software">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Software
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">C++ Redistributable</a></li>
+                <li><a href="#">Graphics Drivers</a></li>
+                <li><a href="#">Direct X Packages</a></li>
+                <li><a href="#">Sound Card Drivers</a></li>
+              </ul>
+            </div>
+
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['/Steam']">Steam</a>
         </li>
+       
       </ul>
       
       <div class="dropdown" *ngIf="loggedIn()" dropdown>
@@ -36,6 +62,9 @@
         <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" [(ngModel)]="model.username" required>
         <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" [(ngModel)]="model.password" required>
         <button [disabled]="!loginform.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+        
+
+        
       </form>
   </div>
 </nav>

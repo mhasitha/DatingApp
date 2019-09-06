@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DatingApp.API.Dtos;
+using DatingApp.API.Dtos.QuestionDtos;
 using DatingApp.API.Model;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,11 @@ namespace DatingApp.API.Helpers
             CreateMap<UserForRegisterDto,User>();
             CreateMap<Photo,PhotoForReturnDto>();
             CreateMap<PhotosForCreationDto,Photo>();
+            CreateMap<PostQuestionDto, Question>()
+                 .ForMember(o => o.User, m => m.Ignore())
+                 .ForMember(o => o.Answers, m => m.Ignore())
+                 .ForMember(o => o.Resolved, m => m.Ignore())
+                 .ForMember(o => o.CreatedDate, m => m.Ignore());
 
         }
 
