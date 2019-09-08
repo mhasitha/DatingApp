@@ -1,3 +1,4 @@
 export class QuestionToPost {
-    question:string;
+    Heading:string;
+    Description:string;
 }

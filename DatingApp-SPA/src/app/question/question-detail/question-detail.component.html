@@ -10,14 +10,14 @@
                     <div class="row">
                       <div class="col-lg-12">
                           <img
-                          src="../../../assets/minton/images/users/avatar-2.jpg"
+                          src="../../../assets/user.png"
                           class="mr-3"
                           width="50"
                           height="50"
                         />
                       </div>
                       <div class="col-lg-12">
-                        <!-- <app-post-answer [QuestionId]="questionDetail.id"></app-post-answer> -->
+                        <app-post-answer [QuestionId]="questionDetail.id"></app-post-answer>
                       </div>
                     </div>
                   </div>
@@ -26,10 +26,6 @@
                           <h5 class="m-0">{{ questionDetail.heading }}</h5>
                           <i class="fa fa-check-circle" *ngIf="questionDetail.resolved">Resolved</i>
                           <div class="ml-2">
-                            <div class="row">
-                              <span class="badge badge-dark mr-1"
-                                *ngFor="let tagItem of questionDetail.tags">{{ tagItem.name }}</span>
-                            </div>
                             <div class="row">
                               <pre class="questionDes">{{ questionDetail.description }}</pre>
                             </div>
@@ -45,7 +41,7 @@
                   <h5 class="m-0">Solutions</h5>
                   <div class="row">
                     <div class="col-lg-12" *ngFor="let ans of questionDetail.answers">
-                      {{ans.solution}}
+                      {{ans.Solution}}
                     </div>
                   </div>
               </div>

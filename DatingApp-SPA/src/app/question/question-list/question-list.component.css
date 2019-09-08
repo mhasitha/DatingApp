@@ -1,0 +1,10 @@
+.question-list-card {
+    cursor: pointer;
+    margin-bottom: 7px !important;
+    padding: 5px !important;
+    background-color: #367bad;
+    color: white
+  }
+  .listDescriptionFont {
+    font-size: small;
+  }

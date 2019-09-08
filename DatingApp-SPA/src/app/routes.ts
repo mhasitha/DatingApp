@@ -12,6 +12,8 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { QuestionListComponent } from './question/question-list/question-list.component';
+import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
+import { QuestionDetailResolver } from './_resolvers/question-detail.resolver';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -28,6 +30,7 @@ export const appRoutes: Routes = [
             },
             { path: 'lists', component: ListsComponent },
             { path: 'question', component: QuestionListComponent },
+            { path: 'question/:id', component: QuestionDetailComponent , resolve: { questionDetail: QuestionDetailResolver }},
 
             { path: 'messages', component: MessagesComponent }
         ]

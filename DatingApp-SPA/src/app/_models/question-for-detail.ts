@@ -2,11 +2,10 @@ import { Tag } from './tag';
 import { Answer } from './answer';
 
 export interface QuestionForDetail {
-    id:string;
+    id:number;
     heading:string;
-    answers:Answer;
-    tags:Tag[];
-    userId:string; 
+    answers:Answer[];
+    userId:number; 
     description:string;
     createdDate:Date;
     resolved:boolean;

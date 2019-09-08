@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionToPost } from 'src/app/_models/question-to-post';
 import { QuestionService } from 'src/app/_services/question.service';
+import { QuestionForList } from 'src/app/_models/question-for-list';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-question-list',
@@ -10,17 +12,21 @@ import { QuestionService } from 'src/app/_services/question.service';
 export class QuestionListComponent implements OnInit {
 
   question:QuestionToPost;
-  questionSevice:QuestionService
-  constructor(_questionSevice:QuestionService) {
+  questionList:QuestionForList[];
+  newListObj:QuestionForList;
+  constructor(private questionSevice:QuestionService,private alertify:AlertifyService) {
     this.question = new QuestionToPost();
-    this.questionSevice = _questionSevice;
    }
 
   ngOnInit() {
+    this.questionSevice.GetQuestions().subscribe(response => { this.questionList = response;
+      debugger;
+    }
+      , error => { this.alertify.error("Error occured while retriving Questions !!!") });
   }
   postQuestion(){
 
-    this.questionSevice.AddQuestion(this.question).subscribe(next => {
+    this.questionSevice.PostQuestion(this.question).subscribe(next => {
       
       // this.alertify.success('Posted successfully')
     }, error => {
@@ -29,5 +35,12 @@ export class QuestionListComponent implements OnInit {
       // this.router.navigate(['/members']);
     })
     // this.questionSevice.AddQuestion(this.question);
+  }
+  addToList(e){
+    this.newListObj = null;
+    this.newListObj = e;
+    this.questionList.push(this.newListObj);
+    console.log(e);
+    debugger;
   }
 }

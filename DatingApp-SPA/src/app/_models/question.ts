@@ -1,4 +1,4 @@
-/* import { Tag } from './tag';
+import { Tag } from './tag';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
   })
 export class Question {
   Heading:string;
-  Tags:Tag[];
   Description:string;
 
-} */
+} 

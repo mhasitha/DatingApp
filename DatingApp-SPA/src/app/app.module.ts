@@ -35,6 +35,9 @@ import { QuestionListComponent } from './question/question-list/question-list.co
 import { PostQuestionComponent } from './question/post-question/post-question.component';
 import { QuestionService } from './_services/question.service';
 import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
+import { QuestionDetailResolver } from './_resolvers/question-detail.resolver';
+import { PostAnswerComponent } from './question/post-answer/post-answer.component';
+import { AnswerListComponent } from './question/answer-list/answer-list.component';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -56,7 +59,9 @@ export function tokenGetter(){
       PhotoEditorComponent,
       QuestionListComponent,
       PostQuestionComponent,
-      QuestionDetailComponent
+      QuestionDetailComponent,
+      PostAnswerComponent,
+      AnswerListComponent
    ],
    imports: [
       BrowserModule,
@@ -66,7 +71,6 @@ export function tokenGetter(){
       ReactiveFormsModule,
       BsDropdownModule.forRoot(),
       ModalModule.forRoot(),
-   //  NgMultiSelectDropDownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
          config:{
@@ -90,7 +94,8 @@ export function tokenGetter(){
       MemberListResolver,
       MemberEditResolver,
       PreventUnsavedChanges,
-      QuestionService
+      QuestionService,
+      QuestionDetailResolver
    ],
    bootstrap: [
       AppComponent

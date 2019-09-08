@@ -1,9 +1,8 @@
 import { Tag } from './tag';
 
 export interface QuestionForList {
-    id:string;
+    id:number;
     heading:string;
-    tags:Tag[];
     userId:string; 
     description:string;
     createdDate:Date;

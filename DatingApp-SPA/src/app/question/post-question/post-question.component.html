@@ -1,3 +1,46 @@
-<p>
-  post-question works!
-</p>
+<button class="btn btn-ask" (click)="lgModal.show()">Ask a Question</button>
+ 
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Ask a Question</h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="p-2">
+                    <form #postquestionform="ngForm" class="form-horizontal" role="form" (ngSubmit)="PostQuestion()">
+                            <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="simpleinput">Question Header</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control mr-sm-2" name="Heading" placeholder="Enter your Query"  [(ngModel)]="question.Heading" required></textarea>
+                                    </div>
+                                </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="simpleinput">Description</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control mr-sm-2" name="Description" placeholder="Enter your Query" [(ngModel)]="question.Description" required rows="10"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-12 text-center">
+                                <button class="btn btn-success my-2 my-sm-0 mr-1" type="submit" (click)="lgModal.hide()">Post</button>     
+                                <button class="btn btn-danger my-2 my-sm-0" type="button" (click)="lgModal.hide()">Cancel</button>       
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>            
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <button type="button" (click)="PostQuestion()" ></button>
+<h1>{{question.Tags}}</h1> -->

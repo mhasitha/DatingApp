@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   })
 
 export class AnswerForPost {
-    QuestionId:string;
+    QuestionId:number;
     Solution:string;
+    UserId:number;
 }

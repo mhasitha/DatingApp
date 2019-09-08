@@ -32,6 +32,8 @@ namespace DatingApp.API.Helpers
             CreateMap<UserForRegisterDto,User>();
             CreateMap<Photo,PhotoForReturnDto>();
             CreateMap<PhotosForCreationDto,Photo>();
+            CreateMap<Question, QuestionForList>()
+                .ForMember(o => o.userId, m => m.Ignore());
             CreateMap<PostQuestionDto, Question>()
                  .ForMember(o => o.User, m => m.Ignore())
                  .ForMember(o => o.Answers, m => m.Ignore())
